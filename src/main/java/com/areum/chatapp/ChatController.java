@@ -10,7 +10,7 @@ import reactor.core.scheduler.Schedulers;
 
 import java.time.LocalDateTime;
 
-
+//깃 계정 변경 확인
 @RestController
 @RequiredArgsConstructor
 public class ChatController {
