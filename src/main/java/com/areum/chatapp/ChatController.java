@@ -24,6 +24,14 @@ public class ChatController {
     }
 
     @CrossOrigin
+    @GetMapping(value = "/chat/roomNum/{roomNum}", produces = MediaType.TEXT_EVENT_STREAM_VALUE)//produces = MediaType.TEXT_EVENT_STREAM_VALUE SSE 프로토콜을 사용하겠다
+    public Flux<Chat> getMsg(@PathVariable Integer roomNum){
+        System.out.println(roomNum);
+        return chatRepository.mFindByRoomNum(roomNum)
+                .subscribeOn(Schedulers.boundedElastic());
+    }
+
+    @CrossOrigin
     @PostMapping("/chat")
     public Mono<Chat> setMsg(@RequestBody Chat chat){
         chat.setCreatedAt(LocalDateTime.now());

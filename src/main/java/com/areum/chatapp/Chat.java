@@ -14,6 +14,7 @@ public class Chat {
     private String msg;
     private String sender;
     private String receiver;
+    private int roomNum;
 
     private LocalDateTime createdAt;
 }
